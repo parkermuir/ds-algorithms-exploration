@@ -8,16 +8,18 @@ const majorityElement = ( array ) => {
       hash[element] = 1;
     } else {
       hash[element] += 1;
-      if (hash[element] > maj) { return element; }
     }
+    if (hash[element] > maj) { return element; }
   }
   return 'no majority';
 };
 
 let a = [2, 2, 2, 3, 4, 2, 3]; 
 let b = [3, 3, 4, 5];
+let c = [5];
 
 console.log(majorityElement(a)); // 2
 console.log(majorityElement(b)); // 'no majority'
+console.log(majorityElement(c)); // '5'
 
 //O(n) time and O(n) space
