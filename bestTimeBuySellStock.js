@@ -2,7 +2,7 @@ const bestBuy = ( days ) => {
   let min = days[0];
   let maxProfit = 0;
 
-  for (let i = 0; i < days.length; i++) {
+  for (let i = 1; i < days.length; i++) {
     const price = days[i];
     maxProfit = Math.max(price - min, maxProfit);
     if ( price < min) {
