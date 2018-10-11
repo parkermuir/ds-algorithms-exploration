@@ -43,9 +43,9 @@ const highestAverage = ( scores ) => {
       students[name]['count'] += 1;
     }
     let average = students[name]['total'] / students[name]['count'];
-    high = Math.floor(Math.max(high, average));
+    high = Math.max(high, average);
   }
-  return high;
+  return Math.floor(high);
 };
 
 console.log(highestAverage(example)); // 90
