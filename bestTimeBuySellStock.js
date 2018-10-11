@@ -22,3 +22,5 @@ console.log(bestBuy(b)); // 8
 console.log(bestBuy(c)); // 0
 
 // O(n)
+
+//do with unlimited trades

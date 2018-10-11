@@ -17,19 +17,24 @@ const majorityElement = ( array ) => {
 
 let a = [2, 2, 2, 3, 4, 2, 3]; 
 let b = [3, 3, 4, 5];
-let c = [5, ];
+let c = [5];
+let d = [5, 4, 4, 4, 5, 1, 5, 5, 5, 5, 4];
 
 console.log(majorityElement(a)); // 2
 console.log(majorityElement(b)); // 'no majority'
 console.log(majorityElement(c)); // '5'
+console.log(majorityElement(d)); // '5'
 
 
-//O(n) time and O(1) space
+//O(n) time and O(1) space 
+//(Moore's voting algorithm)
+//when it is given that the majority element will exist, 
+//otherwise this way won't work
 const majorityElement2 = ( array ) => {
   let candidate = array[0];
-  let count = 0;
+  let count = 1;
 
-  for ( let i = 0; i < array.length; i++) {
+  for ( let i = 1; i < array.length; i++) {
     const element = array[i];
     if (element === candidate) {
       count++;
@@ -39,6 +44,7 @@ const majorityElement2 = ( array ) => {
 
     if (count === 0) {
       candidate = element;
+      count = 1;
     }
   }
 
@@ -60,3 +66,4 @@ const majorityElement2 = ( array ) => {
 console.log(majorityElement2(a)); // 2
 console.log(majorityElement2(b)); // 'no majority'
 console.log(majorityElement2(c)); // '5'
+console.log(majorityElement2(d)); // '5'
