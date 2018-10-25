@@ -32,3 +32,9 @@ let J2 = 'z';
 let S2 = 'ZZ';
 console.log(compare(J, S)); // 3
 console.log(compare(J2, S2)); // 0
+
+
+//leet code special
+function numJewelsInStones(J, S) {
+  return S.split('').filter((s) => J.includes(s)).length;
+}
