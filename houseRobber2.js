@@ -5,7 +5,7 @@
 
 
 let a = [2, 3, 2]; //3
-let b = [1, 2, 3, 4] // 4
+let b = [1, 2, 3, 4]; // 4
 
 const optimalRobber = ( array ) => {
 
