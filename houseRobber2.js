@@ -13,4 +13,4 @@ const optimalRobber = ( array ) => {
 
 
 console.log(optimalRobber(a)); //
-console.log(optimalRobber(b)); //
+console.log(optimalRobber(b)); // . vm,

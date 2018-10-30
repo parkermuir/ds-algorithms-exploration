@@ -24,3 +24,16 @@ console.log(bestBuy(c)); // 0
 // O(n)
 
 //do with unlimited trades
+
+
+//with unlimited trades but only one hold at a time
+
+const multipleBuys = (days) => {
+  let maxProfit = 0;
+  for (let i = 0; i < days.length; i++) {
+    if (days[i] > days[i - 1]) {
+      maxProfit = maxProfit + prices[i] - prices[i - 1];
+    }
+  }
+  return maxProfit;
+};
