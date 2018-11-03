@@ -16,10 +16,19 @@ const product = ( array ) => {
     leftProd = leftProd * array[i];
   }
 
-  for (let i = array.length - 1; i > 0; i--) {
+  for (let i = array.length - 1; i >= 0; i--) {
     output[i] = output[i] * rightProd;
     rightProd = rightProd * array[i];
   }
 
   return output;
 };
+
+
+let a = [ 1, 2, 3, 4];
+let b = [ 1, 2, 1, 5];
+let c = [ 2, 2, 2, 2];
+
+console.log(product(a)); //
+console.log(product(b)); //
+console.log(product(c)); //
