@@ -41,7 +41,7 @@ const booleanTwoSum = (nums, k) => {
     }
   }
   return false;
-}
+};
 
 console.log(booleanTwoSum(a, 3));
 console.log(booleanTwoSum(b, 15));
