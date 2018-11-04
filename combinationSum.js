@@ -27,43 +27,66 @@ A solution set is:
 ]
 */
 
-c1 = [10, 1, 2, 7, 6, 1, 5];
-t1 = 8;
+let c1 = [10, 1, 2, 7, 6, 1, 5];
+let t1 = 8;
 
-c2 = [2, 5, 2, 1, 2];
-t2 = 5;
+let c2 = [2, 5, 2, 1, 2];
+let t2 = 5;
+
+// const combinationSumII = (candidates, target) => {
+//   candidates.sort((a, b) => {
+//     return a - b;
+//   });
+//   console.log(candidates);
+//   let solutions = [];
+
+//   const findCombos = (start, subtotal, combo) => {
+//     if (subtotal === target) {
+//       solutions.push(combo.slice());
+//     } else {
+//       for (let i = start; i < candidates.length; i++) {
+//         if (candidates[i] > target - subtotal) {
+//           continue;
+//         }
+//         if (i > start && candidates[i - 1] === candidates[i]) {
+//           continue;
+//         }
+//         combo.push(candidates[i]);
+//         console.log(combo);
+//         subtotal += candidates[i];
+//         findCombos(i + 1, subtotal, combo);
+//         combo.pop();
+//       }
+//     }
+//   };
+
+//   findCombos(0, 0, []);
+//   return solutions;
+// };
 
 const combinationSumII = (candidates, target) => {
-  candidates = candidates.sort((a, b) => {
-    return a - b;
-  });
-
-  let solutions = [];
+  candidates.sort((a, b) => a - b);
+  const solutions = [];
 
   const findCombos = (start, subtotal, combo) => {
     for (let i = start; i < candidates.length; i++) {
-
+      console.log({i, start, subtotal, target});
       if (subtotal + candidates[i] === target) {
-        combo.push(candidates[i]);
-        solutions.push(combo.slice());
+        solutions.push(combo.concat(candidates[i]));
       } else if (subtotal + candidates[i] < target && i + 1 < candidates.length) {
-        combo.push(candidates[i]);
-        subtotal += candidates[i];
-        console.log(combo);
-        findCombos(i + 1, subtotal, combo);
-        combo.pop();
+        findCombos(i + 1, subtotal + candidates[i], combo.concat(candidates[i]));
       }
-
-      while (candidates[i + 1] === candidates[i]) { i++; }
+      while (candidates[i + 1] === candidates[i]) {
+        i++;
+      }
     }
-
   };
 
   findCombos(0, 0, []);
   return solutions;
 };
 
-combinationSumII(c1, t1)
+
 console.log('solutions', combinationSumII(c1, t1));
 // console.log(combinationSumII(c2, t2));
 
