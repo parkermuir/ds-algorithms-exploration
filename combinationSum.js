@@ -1,4 +1,63 @@
 /*
+
+Given a set of candidate numbers (candidates) (without duplicates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.
+
+The same repeated number may be chosen from candidates unlimited number of times.
+
+Note:
+
+All numbers (including target) will be positive integers.
+The solution set must not contain duplicate combinations.
+Example 1:
+
+Input: candidates = [2,3,6,7], target = 7,
+A solution set is:
+[
+  [7],
+  [2,2,3]
+]
+Example 2:
+
+Input: candidates = [2,3,5], target = 8,
+A solution set is:
+[
+  [2,2,2,2],
+  [2,3,3],
+  [3,5]
+]
+*/
+
+const combinationSum = ( candidates, target) => {
+  const solutions = [];
+
+  const findCombos = (start, subtotal, combo ) => {
+    if (subtotal = target) {
+      return solutions.push(combo.slice());
+    }
+
+    if (subtotal > target) {
+      return;
+    }
+
+    for (i = start; i< candidates.length; i++) {
+      //add current candidate to our combo
+      combo.push(candidates[i]);
+      //see if including this candidate will get a result
+      findCombos(i, );
+    }
+
+  }
+
+};
+
+console.log(combinationSum([2, 3, 6, 7], 7));
+console.log(combinationSum([2, 3, 5], 8));
+console.log(combinationSum([2, 3, 6, 7], 9));
+
+/*
+
+II
+
 Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.
 
 Each number in candidates may only be used once in the combination.
@@ -87,7 +146,7 @@ const combinationSumII = (candidates, target) => {
 };
 
 
-console.log('solutions', combinationSumII(c1, t1));
+// console.log('solutions', combinationSumII(c1, t1));
 // console.log(combinationSumII(c2, t2));
 
 
