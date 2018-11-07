@@ -20,19 +20,24 @@ All given inputs are in lowercase letters a-z.
 
 
 const prefix = ( array ) => {
-  let lcp = array[0];
+  let prefix = array[0];
 
-  for (let i = 0; i < array.length; i++) {
-    const word = array[i];
-
-    
+  for (let i = 1; i < array.length; i++) {
+    prefix = lcp(prefix, array[i]) 
   }
+  return prefix;
 }
 
 const lcp = (string1, string2) => {
   let prefix = ""
-  for ( char in string1 ) {
-    
-    
+  for (let i = 0; i < string1.length; i++) {
+    if (string1[i] === string2[i]) {
+      prefix = prefix + string1[i];
+    } else {
+      return prefix
+    }
   }
+  return prefix;
 };
+
+console.log(prefix(['aaa', 'ccb', 'aaaa', 'aac']))
