@@ -28,5 +28,21 @@ const parity = ( arr ) => {
   return results;
 };
 
-console.log(parity([3, 1, 7, 8, 9, 10, 2, 4]));
 
+const parityII = ( arr ) => {
+  let even = [];
+  let odd = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    const num = arr[i];
+
+    if (num % 2 === 0) {
+      even.push(num);
+    } else {
+      odd.push(num);
+    }
+  }
+  return even.concat(odd);
+};
+
+console.log(parityII([3, 1, 7, 8, 9, 10, 2, 4]));
