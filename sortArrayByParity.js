@@ -45,4 +45,14 @@ const parityII = ( arr ) => {
   return even.concat(odd);
 };
 
-console.log(parityII([3, 1, 7, 8, 9, 10, 2, 4]));
+const paritySort = ( arr ) => {
+  return arr.sort((a) => {
+    if (a % 2 === 0) {
+      return -1;
+    } else {
+      return 1;
+    }
+  });
+};
+
+console.log(paritySort([3, 1, 7, 8, 9, 10, 2, 4]));
