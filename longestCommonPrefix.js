@@ -23,21 +23,21 @@ const prefix = ( array ) => {
   let prefix = array[0];
 
   for (let i = 1; i < array.length; i++) {
-    prefix = lcp(prefix, array[i]) 
+    prefix = lcp(prefix, array[i]); 
   }
   return prefix;
-}
+};
 
 const lcp = (string1, string2) => {
-  let prefix = ""
+  let prefix = '';
   for (let i = 0; i < string1.length; i++) {
     if (string1[i] === string2[i]) {
       prefix = prefix + string1[i];
     } else {
-      return prefix
+      return prefix;
     }
   }
   return prefix;
 };
 
-console.log(prefix(['aaa', 'ccb', 'aaaa', 'aac']))
+console.log(prefix(['aaa', 'ccb', 'aaaa', 'aac']));
