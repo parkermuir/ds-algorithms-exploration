@@ -56,3 +56,30 @@ const paritySort = ( arr ) => {
 };
 
 console.log(paritySort([3, 1, 7, 8, 9, 10, 2, 4]));
+
+
+//922
+
+const paritySortII = ( arr ) => {
+  let even = [];
+  let odd = [];
+  let results = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    const num = arr[i];
+
+    if (num % 2 === 0) {
+      even.push(num);
+    } else {
+      odd.push(num);
+    }
+  }
+  
+  for (let i = 0; i < even.length; i++) {
+    results.push(even[i]);
+    results.push(odd[i]);
+  }
+  return results;
+};
+
+console.log(paritySortII([3, 1, 7, 8, 9, 10, 2, 4]));
