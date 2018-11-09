@@ -39,11 +39,11 @@ const robotReturn = (string) => {
       x++;
     }
   }
-  return x + y === 0;
+  return (x === 0 && y === 0);
 };
 
 console.log(robotReturn('UDD'));
-console.log(robotReturn('RLRLRRLL'));
+console.log(robotReturn('RRDD'));
 
 
 
