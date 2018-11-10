@@ -48,16 +48,14 @@ let caller = rateLimiter( function () {
   console.log(args);
 }, 3);
 
-caller('hi', 'hey');
-caller('hi', 'hey');
-caller('hi', 'hey');
-caller('hi', 'hey');
-caller('hi', 'hey');
+caller('hi', 1);
+caller('hi', 2);
+caller('hi', 3);
+caller('hi', 4);
+caller('hi', 5);
 
-// setTimeout(() => {
-//   caller('hi', 'hey');
-//   caller('hi', 'hey');
-//   caller('hi', 'hey');
-//   caller('hi', 'hey');
-//   caller('hi', 'hey');
-// }, 2000);
+setTimeout(() => {
+  caller('hi', 4);
+  caller('hi', 5);
+  caller('hi', 6);
+}, 1000);
