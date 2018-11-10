@@ -28,6 +28,11 @@ const rateLimiter = (func, n) => {
   return function () {
     let timestamp = new Date();
     calls.push(timestamp);
+
+    // setTimeout(()=> {
+    //   calls.shift();
+    // }, 1000);
+
     calls = calls.filter(call => call > (timestamp - 1000));
     if (calls.length <= n) {
       func.apply(null, arguments);
@@ -48,3 +53,11 @@ caller('hi', 'hey');
 caller('hi', 'hey');
 caller('hi', 'hey');
 caller('hi', 'hey');
+
+// setTimeout(() => {
+//   caller('hi', 'hey');
+//   caller('hi', 'hey');
+//   caller('hi', 'hey');
+//   caller('hi', 'hey');
+//   caller('hi', 'hey');
+// }, 2000);
