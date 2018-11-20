@@ -20,29 +20,49 @@ Output: Node 4 from this list (Serialization: [4,5,6])
 Since the list has two middle nodes with values 3 and 4, we return the second one.
 */
 
-const Node = (value) => {
+var ListNode = function(value) {
   this.value = value;
   this.next = null;
 };
 
+
+
+const middleNode = (array) => {
+
+  let target = Math.floor(array.length / 2);
+  console.log(target);
+
+  let ansHead = new ListNode(array[target]);
+  let ans = ansHead;
+
+  for (i = target + 1; i < array.length; i++) {
+    let temp = new ListNode(array[i]);
+    ans.next = temp;
+    ans = ans.next;
+  }
+
+  return ansHead;
+}; 
+
 let arr = [1, 2, 3, 4, 5];
+console.log(middleNode(arr));
+  
+// const middleNode = (node) => {
+//   let length = 0;
+//   let node1 = node;
 
-const middleNode = (node) => {
-  let length = 0;
-  let node1 = node;
+//   while (node1 !== null) {
+//     length++;
+//     node1 = node1.next;
+//   }
 
-  while (node1 !== null) {
-    length++;
-    node1 = node1.next;
-  }
-
-  let target = Math.ceiling(length);
-  let node2 = node;
-  for (let i = 0; i < length; i++) {
-    if (i === target) {
-      return node2;
-    }
-    node2 = node2.next;
-  }
-};
+//   let target = Math.ceiling(length);
+//   let node2 = node;
+//   for (let i = 0; i < length; i++) {
+//     if (i === target) {
+//       return node2;
+//     }
+//     node2 = node2.next;
+//   }
+// };
 
