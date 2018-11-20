@@ -48,14 +48,35 @@ let caller = rateLimiter( function () {
   console.log(args);
 }, 3);
 
-caller('hi', 1);
-caller('hi', 2);
-caller('hi', 3);
-caller('hi', 4);
-caller('hi', 5);
+// caller('hi', 1);
+// caller('hi', 2);
+// caller('hi', 3);
+// caller('hi', 4);
+// caller('hi', 5);
 
-setTimeout(() => {
-  caller('hi', 4);
-  caller('hi', 5);
-  caller('hi', 6);
-}, 1000);
+// setTimeout(() => {
+//   caller('hi', 4);
+//   caller('hi', 5);
+//   caller('hi', 6);
+// }, 1000);
+
+
+
+var RecentCounter = function () {
+  calls: [];
+};
+
+RecentCounter.prototype.ping = function (t) {
+  this.calls.push(t);
+  this.calls = this.calls.filter((call) => {
+    return call >= (t - 3000);
+  });
+  return this.calls.length;
+};
+
+
+var obj = Object.create(RecentCounter);
+console.log(obj.ping(1));
+console.log(obj.ping(100));
+console.log(obj.ping(3001));
+console.log(obj.ping(3002));
