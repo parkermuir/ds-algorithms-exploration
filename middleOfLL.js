@@ -25,44 +25,29 @@ var ListNode = function(value) {
   this.next = null;
 };
 
+var middleNode = function(head) {
+  let length = 0;
+  let node1 = head;
 
-
-const middleNode = (array) => {
-
-  let target = Math.floor(array.length / 2);
-  console.log(target);
-
-  let ansHead = new ListNode(array[target]);
-  let ans = ansHead;
-
-  for (i = target + 1; i < array.length; i++) {
-    let temp = new ListNode(array[i]);
-    ans.next = temp;
-    ans = ans.next;
+  while (node1 !== null) {
+    length++;
+    node1 = node1.next;
   }
 
-  return ansHead;
-}; 
+  // if (length === 1) {
+  //     return head;
+  // }
+  let target = Math.floor(length / 2) + 1;
+  let node2 = head;
+    
+  for (let i = 1; i <= length; i++) {
+    console.log(i, target);
+    if (i === target) {
+      return node2;
+    } else {
+      node2 = node2.next;
+    }
+  }
+};
 
-let arr = [1, 2, 3, 4, 5];
-console.log(middleNode(arr));
-  
-// const middleNode = (node) => {
-//   let length = 0;
-//   let node1 = node;
-
-//   while (node1 !== null) {
-//     length++;
-//     node1 = node1.next;
-//   }
-
-//   let target = Math.ceiling(length);
-//   let node2 = node;
-//   for (let i = 0; i < length; i++) {
-//     if (i === target) {
-//       return node2;
-//     }
-//     node2 = node2.next;
-//   }
-// };
-
+console.log(middleNode({value: 1, next: null}));
