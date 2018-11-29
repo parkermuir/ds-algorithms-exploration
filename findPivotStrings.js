@@ -12,18 +12,18 @@ const findPivot = (arr) => {
   let mid;
 
   while (front < back) {
-    let mid = front + Math.floor((front + back) / 2);
-  }
-  if (arr[mid] > firstWord) {
-    front = mid;
-  } else {
-    back = mid;
-  }
+    mid = front + Math.floor((back - front) / 2);
 
-  if (front + 1 === back) {
-    break;
-  }
+    if (arr[mid] > firstWord) {
+      front = mid;
+    } else {
+      back = mid;
+    }
 
+    if (front + 1 === back) {
+      break;
+    }
+  }
   return back;
 };
 
