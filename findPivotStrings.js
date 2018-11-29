@@ -1,13 +1,30 @@
 
-let a = ['p', 'q', 'z', 'a', 'b', 'c', 'd', 'e', 'f'];
+let a = ['ptolemaic', 'retrograde', 'supplant',
+  'undulate', 'xenoepist', 'asymptote',
+  'babka', 'banoffee', 'engender',
+  'karpatka', 'othellolagkage'];
+
+  
 const findPivot = (arr) => {
   let firstWord = arr[0];
   let front = 0;
-  let back = array.length - 1;
+  let back = arr.length - 1;
   let mid;
 
-  while ( front < back) {
-    
+  while (front < back) {
+    let mid = front + Math.floor((front + back) / 2);
+  }
+  if (arr[mid] > firstWord) {
+    front = mid;
+  } else {
+    back = mid;
   }
 
+  if (front + 1 === back) {
+    break;
+  }
+
+  return back;
 };
+
+console.log(findPivot(a));
