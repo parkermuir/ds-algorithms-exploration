@@ -1,3 +1,17 @@
+const Node = function(value) {
+  this.value = value;
+  this.next = null;
+};
+
+let head = new Node(0);
+let current = head;
+let n = 1;
+while (n < 11) {
+  current.next = new Node(n++);
+  current = current.next;
+  console.log(current);
+}
+
 
 const removeNthFromEnd = function (head, n) {
   let current = head;
@@ -16,5 +30,5 @@ const removeNthFromEnd = function (head, n) {
   }
   //once this loop breaks you need remove the node
   //then return head
-  
+
 };
