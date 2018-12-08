@@ -1,4 +1,3 @@
-
 //find longest palindrome from input string
 
 const a = 'aaabbbbccc';
@@ -18,8 +17,6 @@ const longestPalindrome = (string) => {
       counts[char] = 1;
     }
   }
-
-  console.log(counts)
 
   //loop through hash map counting pairs
   //check for odd via flag
