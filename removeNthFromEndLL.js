@@ -14,7 +14,7 @@ const removeNthFromEnd = function (head, n) {
     leader = leader.next;
 
   }
-
   //once this loop breaks you need remove the node
-
+  //then return head
+  
 };
