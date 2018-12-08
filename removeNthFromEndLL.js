@@ -9,26 +9,38 @@ let n = 1;
 while (n < 11) {
   current.next = new Node(n++);
   current = current.next;
-  console.log(current);
 }
 
 
 const removeNthFromEnd = function (head, n) {
   let current = head;
-  let leader;
-  let count;
+  let leader = head;
+  let count = 0;
 
-  while (current2 !== null) {
-    while (count < n) {
-      leader = leader.next;
-      count++;
-    }
+  //
+  while (count <= n) {
+    leader = leader.next;
+    count++;
+  }
 
+  console.log('Count=', count);
+  console.log('leader', leader);
+  
+  while (leader !== null) {
     current = current.next;
     leader = leader.next;
-
   }
+  
+  current.next = current.next.next;
+  // current.next = temp;
+
+  console.log('leader', leader);
+  console.log('current', current);
+
   //once this loop breaks you need remove the node
   //then return head
 
 };
+
+
+removeNthFromEnd(head, 3);
