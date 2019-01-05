@@ -20,3 +20,4 @@ var selfDividingNumbers = function (left, right) {
 
 console.log(selfDividingNumbers(1, 22));
 console.log([1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]);
+console.log(22[1]);

@@ -11,27 +11,26 @@ const convert = (string, n) => {
   if (n === 1) {
     return string;
   }
+  
   let rows = [];
   for (let i = 0; i <= n - 1; i++) {
-    rows.push([]);
+    rows[i] = '';
   }
 
   let move = 1;
   let counter = 0;
 
   for (let i = 0; i < string.length; i++) {
-    rows[counter] = rows[counter] + string[i];
-
+    rows[counter] += string[i];
+    counter += move;
+    
     if (counter === n - 1) {
       move = - 1;
     } else if (counter === 0) {
       move = 1;
     }
-
-    counter += move;
   }
 
-  console.log(rows)
   return rows.join('');
 };
 
