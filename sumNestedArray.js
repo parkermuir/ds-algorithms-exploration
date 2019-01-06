@@ -1,7 +1,6 @@
-
 const a = [[1, 2, 3], 4, 5]; // 15
 const b = [[1, [3, 8], 3], 4, 5]; // 21
-const c = [[1, 2, 3], 4, 5, [5, [6, 6]]]; // 32
+const c = [[1, 2, 3], 4, 5, [5, [6, 6]], 'a']; // 32
 
 const sumNested = (array) => {
   let sum = 0;
@@ -12,7 +11,7 @@ const sumNested = (array) => {
       console.log({i, sum, element});
       if (typeof element === 'number') {
         sum += element;
-      } else {
+      } else if (Array.isArray(element)) {
         summer(element);
       }
     }
