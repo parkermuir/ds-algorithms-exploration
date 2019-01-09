@@ -45,4 +45,4 @@ const removeNthFromEnd = function (head, n) {
   return head;
 };
 
-console.log(removeNthFromEnd(createList(1), 1));
+console.log(removeNthFromEnd(createList(10), 1));
