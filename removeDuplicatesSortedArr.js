@@ -5,9 +5,6 @@
 
 const a = [1, 2, 1, 2, 2, 3, 4, 4, 4, 4, 5];
 
-i = 1
-j = 5
-
 const removeDuplicates = (nums) => {
   // let pos = 1;
   // for (let i = 1; i < nums.length; i++) {
