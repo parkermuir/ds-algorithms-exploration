@@ -35,6 +35,19 @@ const multipleBuys = (days) => {
   return maxProfit;
 };
 
+//122
+var maxProfit = function(prices) {
+  let maxProfit = 0;
+  
+  for (let i = 0; i < prices.length; i++) {
+      let profit = prices[i+1] - prices[i];
+      if (profit > 0) {
+          maxProfit += profit
+      }
+  }
+  
+  return maxProfit
+};
 console.log(multipleBuys(a)); // 7
 console.log(multipleBuys(b)); // 9
 console.log(multipleBuys(c)); // 0
