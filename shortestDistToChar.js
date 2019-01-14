@@ -1,3 +1,5 @@
+//821
+
 var shortestToChar = function (S, C) {
   let results = [];
   let indexes = [];
