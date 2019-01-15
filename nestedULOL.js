@@ -19,3 +19,29 @@ jQuery 2.1 is supported.
 */
 
 
+var maxDepth = (html) => {
+  let max = 0;
+
+  const dfs = (node, depth) => {
+    if (node.children.length > 0) {
+      for (let i = 0; i < node.children.length; i++) {
+        let child = node.children[i];
+        let tag = child.tagName;
+        if (tag === 'UL' || tag === 'OL') {
+          dfs(child, depth + 1);
+        } else {
+          dfs(child, depth);
+        }
+      }
+    } else {
+      if (depth > max) {
+        max = depth;
+      }
+    }
+  };
+
+  dfs(html, 0);
+  return max;
+};
+
+
