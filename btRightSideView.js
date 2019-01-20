@@ -21,8 +21,13 @@ var rightSideView = function (root) {
     for (let i = 0; i < size; i++) {
       let curr = q[i];
       row.push(curr);
-      q.push(curr.left);
-      q.push(curr.right);
+      if (curr.left !== null) {
+        q.push(curr.left);
+      }
+      if (curr.right !== null) {
+        q.push(curr.right);
+      }
+      
     }
     for (let i = 0; i < size; i++) {
       q.shift();

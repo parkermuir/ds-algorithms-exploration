@@ -27,27 +27,47 @@ A solution set is:
 ]
 */
 
-const combinationSum = ( candidates, target) => {
-  const solutions = [];
+// const combinationSum = ( candidates, target) => {
+//   const solutions = [];
 
-  const findCombos = (start, subtotal, combo ) => {
-    if (subtotal = target) {
-      return solutions.push(combo.slice());
+//   const findCombos = (start, subtotal, combo ) => {
+//     if (subtotal = target) {
+//       return solutions.push(combo.slice());
+//     }
+
+//     if (subtotal > target) {
+//       return;
+//     }
+
+//     for (i = start; i < candidates.length; i++) {
+//       //add current candidate to our combo
+//       combo.push(candidates[i]);
+//       //see if including this candidate will get a result
+//       findCombos(i, );
+//     }
+
+//   }
+
+// };
+
+var combinationSum = function (candidates, target) {
+  result = [];
+
+  const recurse = (temp, idx, total) => {
+    if (total === target) {
+      return result.push(temp)
     }
-
-    if (subtotal > target) {
-      return;
+    if (total > target) {
+      return
     }
-
-    for (i = start; i< candidates.length; i++) {
-      //add current candidate to our combo
-      combo.push(candidates[i]);
-      //see if including this candidate will get a result
-      findCombos(i, );
+    for (let i = idx; i < candidates.length; i++) {
+      recurse(temp.concat(candidates[i]), i, total + candidates[i]);
     }
-
   }
 
+  recurse([], 0, 0)
+
+  return result
 };
 
 console.log(combinationSum([2, 3, 6, 7], 7));
