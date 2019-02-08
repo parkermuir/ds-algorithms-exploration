@@ -25,7 +25,9 @@ const dfs = (grid, row, col) => {
     return;
   }
 
+  dfs(grid, row + 1, col);
+  dfs(grid, row, col + 1);
+  dfs(grid, row - 1, col);
+  dfs(grid, row, col - 1);
   
-
-
 };
