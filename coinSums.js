@@ -20,4 +20,25 @@ const coinSums = (coins, sum) => {
   return countWays(coins, sum, coins.length - 1);
 };
 
-console.log(coinSums([1, 2, 5], 9));
+
+
+const coinSumsDP = (coins, sum) => {
+  let solutions = new Array(sum + 1);
+  solutions.fill(0);
+  solutions[0] = 1;
+  
+  //for each coin
+  for (let i = 0; i < coins.length; i++) {
+    let coin = coins[i];
+
+    for (let j = coin; j < solutions.length; j++) {
+      let leftover = j - coin;
+      solutions[j] += solutions[leftover];
+    }
+    console.log(solutions);
+  }
+
+  return solutions[sum];
+};
+
+console.log(coinSumsDP([5, 2, 1], 9));
