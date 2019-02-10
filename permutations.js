@@ -13,7 +13,10 @@ var permute = function (nums) {
     for (let i = 0; i < nums.length; i++) {
       //if current element is not in the current permutation being built, concat it and recurse
       if (current.indexOf(nums[i]) === -1) {
-        generatePermutations(current.concat(nums[i]));
+        let temp = current.slice();
+        temp.push(nums[i]);
+        generatePermutations(temp);
+        //generatePermutations(current.concat(nums[i]));
       }
     }
 
@@ -23,9 +26,10 @@ var permute = function (nums) {
   return results;
 };
 
-// console.log(permute(['a', 'b', 'c']));
+console.log(permute(['a', 'b', 'c']));
 
 const permuteString = (string) => {
+  console.log(string);
   //base case
   if (string.length <= 1) {
     return [string];
@@ -37,19 +41,21 @@ const permuteString = (string) => {
 
   //recurse to get all possible permutations of the reaminingChars string
   let tempPermutations = permuteString(remainingChars);
+  console.log({tempPermutations});
 
 
   const results = [];
 
-  tempPermutations.forEach( (perm) => {
+  tempPermutations.forEach((perm) => {
     for (let i = 0; i <= remainingChars.length; i++) {
       let temp = perm.slice(0, i) + lastChar + perm.slice(i);
+      console.log({temp});
       results.push(temp);
     }
   });
 
-
+  console.log({results});
   return results;
 };
 
-console.log(permuteString('abce'));
+// permuteString('abce');
