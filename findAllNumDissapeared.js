@@ -9,11 +9,12 @@ const findDisappearedNumbers = (nums) => {
     if (nums[idx] === nums[nums[idx] - 1]) {
       idx++;
     } else {
-      let temp = nums[idx];
-      nums[idx] = nums[temp - 1];
-      nums[temp - 1] = temp;
+      // let temp = nums[idx];
+      // nums[idx] = nums[temp - 1];
+      // nums[temp - 1] = temp;
+      nums.swap(idx, nums[idx] - 1);
     }
-    console.log(nums);
+    // console.log(nums);
   }
 
   for (let i = 0; i < nums.length; i++) {
@@ -23,6 +24,10 @@ const findDisappearedNumbers = (nums) => {
   }
 
   return results;
+};
+
+Array.prototype.swap = function(i, j) {
+  [this[i], this[j]] = [this[j], this[i]];
 };
 
 console.log(findDisappearedNumbers([4, 3, 2, 7, 8, 2, 3, 1]));
