@@ -32,6 +32,7 @@ const permuteString = (string) => {
   console.log(string);
   //base case
   if (string.length <= 1) {
+    console.log('BASE CASE RETURN');
     return [string];
   }
 
@@ -54,8 +55,8 @@ const permuteString = (string) => {
     }
   });
 
-  console.log({results});
+  console.log('RETURN', {results});
   return results;
 };
 
-// permuteString('abce');
+permuteString('abce');
