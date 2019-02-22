@@ -26,7 +26,28 @@ var firstUniqChar = function (s) {
   if (min === Infinity) {
     return -1
   } else {
-    return min
+    return min;
   }
 
 };
+
+
+var firstUniqCharII = function(s) {
+  var chars = [];
+  var i;
+  for (i = 0; i < s.length; i++) {
+      chars[s.charCodeAt(i)] = chars[s.charCodeAt(i)] ? chars[s.charCodeAt(i)] + 1 : 1;
+  }
+
+  console.log(chars);
+  
+  for (i = 0; i < s.length; i++) {
+      if (chars[s.charCodeAt(i)] === 1) {
+          return i;
+      }
+  }
+  
+  return -1;
+};
+
+console.log(firstUniqCharII('ilovelucyi'));
