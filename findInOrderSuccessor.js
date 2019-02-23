@@ -37,3 +37,26 @@ const dfs = (node) => {
   dfs(root)
   return answer
 }
+
+var inorderSuccessorIterative = function(root, p) {
+  let stack = [];
+  let curr = root
+  let prev = null
+  let results = [];
+  
+  while (curr !== null || stack.length !== 0) {
+      if (curr !== null){
+          stack.push(curr)
+          curr = curr.left
+      } else {
+          curr = stack.pop()
+          
+          if (prev === p) {
+            return curr
+          }
+          // results.push(curr.val)
+          prev = curr
+          curr = curr.right
+      }
+  }
+}
