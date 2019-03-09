@@ -12,14 +12,15 @@ const sortColors = (nums) => {
   while (i <= right) {
 
     if (nums[i] === 0) {
-      [nums[left], nums[i]] = [nums[i], nums[left]]
-      left++
-      i++
+      [nums[left], nums[i]] = [nums[i], nums[left]];
+      left++;
+      i++;
 
     } else if (nums[i] === 2) {
-      [nums[right], nums[i]] = [nums[i], nums[right]]
-      right--
-    } else if (nums[i] === 1)
-      i++
+      [nums[right], nums[i]] = [nums[i], nums[right]];
+      right--;
+    } else if (nums[i] === 1) {
+      i++;
+    }
   }
 };
