@@ -69,6 +69,8 @@ var findAnagrams = function (s, p) {
   let count = Object.keys(chars).length;
   let results = [];
 
+  if (s.length === 0 || s.length < p.length) { return results; };
+
   while (end < s.length) {
     if (chars.hasOwnProperty(s[end])) {
 
