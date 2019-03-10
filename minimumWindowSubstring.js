@@ -8,12 +8,12 @@ var minWindow = function (s, t) {
   let min = s + '-';
   let left = 0;
   let right = 0;
-  let target = makeFreqHash(t)
+  let target = makeFreqHash(t);
   let current = {};
 
   while (right < s.length) {
     if (target.hasOwnProperty(s[right])) {
-      current[s[right]] = current[s[right]] + 1 || 1
+      current[s[right]] = current[s[right]] + 1 || 1;
     }
 
     while (isValid(target, current)) {
@@ -21,15 +21,15 @@ var minWindow = function (s, t) {
         min = s.substring(left, right + 1);
       }
       if (current.hasOwnProperty(s[left])) {
-        current[s[left]]--
+        current[s[left]]--;
       }
-      left++
+      left++;
     }
-    right++
+    right++;
   }
 
-  if (min.length > s.length) return ""
-  if (t.length > s.length) return ""
+  if (min.length > s.length) return '';
+  if (t.length > s.length) return '';
   return min;
 };
 
