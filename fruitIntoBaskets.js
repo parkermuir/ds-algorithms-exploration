@@ -20,13 +20,13 @@ var totalFruit = function (array) {
 
     if (fruit !== fruitA && fruit !== fruitB) {
       while (baskA !== 0 && baskB !== 0) {
-        if (array[start] === fruitA) { baskA-- }
-        if (array[start] === fruitB) { baskB-- }
-        start++
+        if (array[start] === fruitA) { baskA--;}
+        if (array[start] === fruitB) { baskB--; }
+        start++;
       }
     } else {
-      if (fruit === fruitA) { baskA++ }
-      if (fruit === fruitB) { baskB++ }
+      if (fruit === fruitA) { baskA++; }
+      if (fruit === fruitB) { baskB++; }
     }
 
     if (baskA === 0 && fruit !== fruitB) {
@@ -38,7 +38,7 @@ var totalFruit = function (array) {
     }
 
     //console.log({fruitA, baskA, fruitB, baskB})
-    max = Math.max(max, baskA + baskB)
+    max = Math.max(max, baskA + baskB);
     i++;
   }
 
