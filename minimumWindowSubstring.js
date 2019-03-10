@@ -5,7 +5,7 @@
  * @return {string}
  */
 var minWindow = function (s, t) {
-  let min = s;
+  let min = s + '-';
   let left = 0;
   let right = 0;
   let target = makeFreqHash(t)
@@ -28,6 +28,8 @@ var minWindow = function (s, t) {
     right++
   }
 
+  if (min.length > s.length) return ""
+  if (t.length > s.length) return ""
   return min;
 };
 
