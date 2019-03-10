@@ -35,3 +35,25 @@ const isUnique = (string, start, stop) => {
   }
   return true
 }
+
+//Linear sliding window
+var lengthOfLongestSubstring = function (s) {
+  let end = 0;
+  let begin = 0;
+  let hash = {};
+  let max = 0;
+
+  while (end < s.length) {
+    if (!hash.hasOwnProperty(s[end])) {
+      hash[s[end]] = true;
+      end++;
+      max = Math.max(max, end - begin);
+    } else {
+      while (hash[s[end]]) {
+        delete hash[s[begin]];
+        begin++;
+      }
+    }
+  }
+  return max;
+}
