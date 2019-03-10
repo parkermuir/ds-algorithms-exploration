@@ -49,15 +49,55 @@
 //   return result;
 // }
 
+// var findAnagrams = function(s, p) {
+//   let target = p.split('').sort().join('');
+//   let results = [];
+//   for (let i = 0; i <= s.length - p.length; i++) {
+//       let sorted = s.substring(i, i + p.length).split('').sort().join('')
+//       if (sorted === target) {
+//          results.push(i) 
+//       }
+//   }
+  
+//   return results;
+// }
+
 var findAnagrams = function(s, p) {
-  let target = p.split('').sort().join('');
+  let begin = 0;
+  let end = 0;
+  let chars = createHash(p)
+  let count = Object.keys(chars).length;
   let results = [];
-  for (let i = 0; i <= s.length - p.length; i++) {
-      let sorted = s.substring(i, i + p.length).split('').sort().join('')
-      if (sorted === target) {
-         results.push(i) 
+  
+  while (end < s.length) {
+      if (chars.hasOwnProperty(s[end])) {
+          
+          chars[s[end]]--
+          if (chars[s[end]] === 0) { count--; }
+      }
+      
+      end++
+      
+      while (count === 0) {
+          if (end - begin === p.length) {
+              results.push(begin);
+          }
+          
+          if (chars.hasOwnProperty(s[end])) {
+  
+              chars[s[begin]]++
+              if (chars[s[begin]] > 0) { count++; }
+          }
+          begin++
       }
   }
-  
   return results;
+}
+
+const createHash = (string) => {
+  let result = {};
+  for (let i = 0; i < string.length; i++) {
+      result[string[i]] = result[string[i]] + 1 || 1
+  }
+  return result;
 }
