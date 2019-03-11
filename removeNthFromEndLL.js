@@ -46,3 +46,31 @@ const removeNthFromEnd = function (head, n) {
 };
 
 console.log(removeNthFromEnd(createList(10), 1));
+
+
+//Mar 10 WB, failing solution
+
+var removeNthFromEnd = function (head, n) {
+  let fast = head;
+  let prev = head;
+  let count = n + 1;
+
+  while (count > 0 && fast !== null) {
+    count--
+    fast = fast.next;
+  }
+
+  while (fast !== null) {
+    fast = fast.next;
+    prev = prev.next;
+  }
+
+  if (head === prev) {
+    return head.next;
+  }
+
+  let temp = prev.next.next;
+  prev.next = temp;
+
+  return head
+}
