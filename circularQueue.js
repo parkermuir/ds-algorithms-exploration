@@ -1,4 +1,4 @@
-/**
+/*
  * Initialize your data structure here. Set the size of the queue to be k.
  * @param {number} k
  */
@@ -10,3 +10,27 @@ var MyCircularQueue = function(k) {
   
 };
 
+/*
+ * Insert an element into the circular queue. Return true if the operation is successful. 
+ * @param {number} value
+ * @return {boolean}
+ */
+MyCircularQueue.prototype.enQueue = function (value) {
+  if (!this.isFull()) {
+    if (this.rear === -1 && this.front === -1) {
+      this.rear = 0;
+      this.front = 0;
+    }
+    else if (this.rear + 1 === this.queue.length) {
+      this.rear = 0;
+    } else {
+      this.rear++;
+    }
+
+    this.queue[this.rear] = value;
+    this.size++;
+    return true;
+  } else {
+    return false;
+  }
+};
