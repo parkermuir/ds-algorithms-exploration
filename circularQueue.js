@@ -34,3 +34,31 @@ MyCircularQueue.prototype.enQueue = function (value) {
     return false;
   }
 };
+
+/**
+ * Delete an element from the circular queue. Return true if the operation is successful.
+ * @return {boolean}
+ */
+MyCircularQueue.prototype.deQueue = function () {
+  if (!this.isEmpty()) {
+    let temp = this.queue[this.front];
+
+    this.queue[this.front] = null;
+    this.size--;
+
+    if (this.front === this.queue.length - 1) {
+      this.front = 0;
+    } else {
+      this.front++;
+    }
+
+    if (this.size === 0) {
+      this.front = -1;
+      this.rear = -1;
+    }
+
+    return true;
+  } else {
+    return false;
+  }
+};
