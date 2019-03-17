@@ -11,12 +11,12 @@ class minHeap {
 
   hasLeftChild(index) {
     let left = (index * 2) + 1;
-    return left < this.storage.length;
+    return left < this.size;
   }
 
   hasRightChild(index) {
     let right = (index * 2) + 2;
-    return right < this.storage.length;
+    return right < this.size;
   }
 
   getParentIndex(index) {
@@ -49,7 +49,9 @@ class minHeap {
     while (this.hasLeftChild(i)) {
       //determine smaller child
       let smallerChildIndex = this.getLeftIndex(i);
-      if (this.hasRightChild(i) && this.getRightIndex(i)) { smallerChildIndex = this.getRightIndex(i); }
+      if (this.hasRightChild(i) && this.storage[this.getRightIndex(i)] < this.storage[smallerChildIndex]) { 
+        smallerChildIndex = this.getRightIndex(i); 
+      }
 
       if (this.storage[i] <= this.storage[smallerChildIndex]) {
         return polled;
@@ -75,6 +77,7 @@ class minHeap {
     //heapify up
     while (this.hasParent(i) && this.storage[parent] > this.storage[i]) {
       //swap with parent
+      //console.log(swapping)
       [this.storage[i], this.storage[parent]] = [this.storage[parent], this.storage[i]];
       i = parent;
     }
@@ -82,19 +85,22 @@ class minHeap {
 }
 
 let minHeap1 = new minHeap();
-minHeap1.add(1);
+// minHeap1.add(1);
 minHeap1.add(5);
 minHeap1.add(6);
 minHeap1.add(2);
-minHeap1.add(1);
+// minHeap1.add(1);
 minHeap1.add(12);
 console.log('storage:', minHeap1.storage);
 console.log('peek:', minHeap1.peek());
+console.log('size:', minHeap1.size);
+console.log('poll:', minHeap1.poll());
+// console.log('storage:', minHeap1.storage);
+// console.log('peek:', minHeap1.peek());
 // console.log('size:', minHeap1.size);
-console.log('poll:', minHeap1.poll());
-console.log('peek:', minHeap1.peek());
-console.log('storage:', minHeap1.storage);
-console.log('poll:', minHeap1.poll());
-console.log('poll:', minHeap1.poll());
-console.log('poll:', minHeap1.poll());
-console.log('storage:', minHeap1.storage);
+// console.log('poll:', minHeap1.poll());
+// console.log('storage:', minHeap1.storage);
+// console.log('peek:', minHeap1.peek());
+// console.log('size:', minHeap1.size);
+// console.log('poll:', minHeap1.poll());
+// console.log('storage:', minHeap1.storage);
