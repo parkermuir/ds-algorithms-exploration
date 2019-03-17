@@ -43,6 +43,7 @@ class minHeap {
     //swap min with last item
     [this.storage[0], this.storage[this.size - 1]] = [this.storage[this.size - 1], this.storage[0]];
     let polled = this.storage.pop();
+    this.size--;
     let i = 0;
 
     //heapify down
@@ -63,7 +64,7 @@ class minHeap {
     }
 
     //decrement size
-    this.size--;
+    
     return polled;
   }
 
@@ -86,21 +87,29 @@ class minHeap {
 
 let minHeap1 = new minHeap();
 // minHeap1.add(1);
+minHeap1.add(2);
 minHeap1.add(5);
 minHeap1.add(6);
-minHeap1.add(2);
 // minHeap1.add(1);
 minHeap1.add(12);
 console.log('storage:', minHeap1.storage);
 console.log('peek:', minHeap1.peek());
 console.log('size:', minHeap1.size);
 console.log('poll:', minHeap1.poll());
-// console.log('storage:', minHeap1.storage);
-// console.log('peek:', minHeap1.peek());
-// console.log('size:', minHeap1.size);
-// console.log('poll:', minHeap1.poll());
-// console.log('storage:', minHeap1.storage);
-// console.log('peek:', minHeap1.peek());
-// console.log('size:', minHeap1.size);
-// console.log('poll:', minHeap1.poll());
-// console.log('storage:', minHeap1.storage);
+console.log('storage:', minHeap1.storage);
+console.log('peek:', minHeap1.peek());
+console.log('size:', minHeap1.size);
+console.log('poll:', minHeap1.poll());
+console.log('storage:', minHeap1.storage);
+console.log('peek:', minHeap1.peek());
+console.log('size:', minHeap1.size);
+console.log('poll:', minHeap1.poll());
+console.log('storage:', minHeap1.storage);
+console.log('peek:', minHeap1.peek());
+console.log('size:', minHeap1.size);
+console.log('poll:', minHeap1.poll());
+console.log('storage:', minHeap1.storage);
+console.log('peek:', minHeap1.peek());
+console.log('size:', minHeap1.size);
+console.log('poll:', minHeap1.poll());
+console.log('storage:', minHeap1.storage);
