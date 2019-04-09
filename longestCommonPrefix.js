@@ -41,3 +41,27 @@ const lcp = (string1, string2) => {
 };
 
 console.log(prefix(['aaa', 'ccb', 'aaaa', 'aac']));
+
+
+// #14
+
+/*
+ * @param {string[]} strs
+ * @return {string}
+ */
+var longestCommonPrefix = function(strs) {
+  if (!strs.length) return '';
+
+  let long = '';
+
+  for (let i = 0; i < strs[0].length; i++) {
+    let temp = long + strs[0][i];
+    for (let j = 0; j < strs.length; j++) {
+      if (strs[j].indexOf(temp) !== 0) {
+        return long;
+      }
+    }
+    long = temp;
+  }
+  return long;
+};
