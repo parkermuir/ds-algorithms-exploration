@@ -62,8 +62,6 @@ class minHeap {
         i = smallerChildIndex;
       }
     }
-
-    //decrement size
     
     return polled;
   }
